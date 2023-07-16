@@ -10,7 +10,7 @@ import java.time.Duration;
 public class SuccessOrderModal {
     WebDriver webdriver;
     //  Текстовый блок "Заказ оформлен"
-    private final By ORDER_SUCCESS_RESULT = By.xpath(".//div[@class='Order_ModalHeader__3FDaJ']");
+    private final By orderSuccessResult = By.xpath(".//div[@class='Order_ModalHeader__3FDaJ']");
 
     public SuccessOrderModal(WebDriver webdriver) {
         this.webdriver = webdriver;
@@ -18,8 +18,8 @@ public class SuccessOrderModal {
 
     public String getOrderHeader() {
         new WebDriverWait(webdriver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOfElementLocated(ORDER_SUCCESS_RESULT));
-        String[] header = webdriver.findElement(ORDER_SUCCESS_RESULT).getText().split("\n");
+                .until(ExpectedConditions.visibilityOfElementLocated(orderSuccessResult));
+        String[] header = webdriver.findElement(orderSuccessResult).getText().split("\n");
         return header[0];
     }
 }

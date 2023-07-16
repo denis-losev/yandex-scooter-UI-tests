@@ -11,7 +11,7 @@ public class OrderConfirmationModal {
     WebDriver webdriver;
 
     //  Кнопка "Да"
-    private final By YES_BTN = By.xpath(".//button[text()='Да']");
+    private final By yesBtn = By.xpath(".//button[text()='Да']");
 
     public OrderConfirmationModal(WebDriver webdriver) {
         this.webdriver = webdriver;
@@ -19,8 +19,8 @@ public class OrderConfirmationModal {
 
     // Подтвердить заказ
     public SuccessOrderModal confirmOrder() {
-        new WebDriverWait(webdriver, Duration.ofSeconds(3)).until(ExpectedConditions.elementToBeClickable(YES_BTN));
-        webdriver.findElement(YES_BTN).click();
+        new WebDriverWait(webdriver, Duration.ofSeconds(3)).until(ExpectedConditions.elementToBeClickable(yesBtn));
+        webdriver.findElement(yesBtn).click();
         return new SuccessOrderModal(webdriver);
     }
 }

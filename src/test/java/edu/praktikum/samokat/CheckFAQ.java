@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
-public class CheckFAQ extends MainTestPattern {
+public class CheckFAQ extends BaseTest {
     private final String questionParam; // Переменная для текста вопроса
     private final String answerParam; // Переменная для текста ответа
 

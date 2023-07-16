@@ -6,21 +6,21 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
-public class СheckOrderScooter extends MainTestPattern {
-    private final String FIRST_NAME; //  Имя
-    private final String LAST_NAME; // Фамилия
-    private final String ADDRESS; // Адрес
-    private final String PHONE_NUMBER; // Номер телефона
-    private final String DELIVERY_DATE; // Дата доставки
-    private final String DESCRIPTION; // Комментарий для курьера
+public class СheckOrderScooter extends BaseTest {
+    private final String firstName; //  Имя
+    private final String lastName; // Фамилия
+    private final String address; // Адрес
+    private final String phoneNumber; // Номер телефона
+    private final String deliveryDate; // Дата доставки
+    private final String description; // Комментарий для курьера
 
     public СheckOrderScooter (String firstName, String lastName, String address, String phone, String dateToDelivery, String description) {
-        this.FIRST_NAME = firstName;
-        this.LAST_NAME = lastName;
-        this.ADDRESS = address;
-        this.PHONE_NUMBER = phone;
-        this.DELIVERY_DATE = dateToDelivery;
-        this.DESCRIPTION = description;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.phoneNumber = phone;
+        this.deliveryDate = dateToDelivery;
+        this.description = description;
     }
 
     @Parameterized.Parameters()
@@ -40,10 +40,10 @@ public class СheckOrderScooter extends MainTestPattern {
         userInfoOrderPage = mainPage.headerOrderBtnClick();
 
         AboutRentOrderPage aboutRentOrderPage;
-        aboutRentOrderPage = userInfoOrderPage.userInfoOrderPage(FIRST_NAME, LAST_NAME, ADDRESS, PHONE_NUMBER);
+        aboutRentOrderPage = userInfoOrderPage.userInfoOrderPage(firstName, lastName, address, phoneNumber);
 
         OrderConfirmationModal orderConfirmationModal;
-        orderConfirmationModal = aboutRentOrderPage.aboutRentOrderPage(DELIVERY_DATE, DESCRIPTION);
+        orderConfirmationModal = aboutRentOrderPage.aboutRentOrderPage(deliveryDate, description);
 
         SuccessOrderModal successOrderModal;
         successOrderModal = orderConfirmationModal.confirmOrder();
@@ -60,10 +60,10 @@ public class СheckOrderScooter extends MainTestPattern {
         userInfoOrderPage = mainPage.bottomOrderBtnClick();
 
         AboutRentOrderPage aboutRentOrderPage;
-        aboutRentOrderPage = userInfoOrderPage.userInfoOrderPage(FIRST_NAME, LAST_NAME, ADDRESS, PHONE_NUMBER);
+        aboutRentOrderPage = userInfoOrderPage.userInfoOrderPage(firstName, lastName, address, phoneNumber);
 
         OrderConfirmationModal orderConfirmationModal;
-        orderConfirmationModal = aboutRentOrderPage.aboutRentOrderPage(DELIVERY_DATE, DESCRIPTION);
+        orderConfirmationModal = aboutRentOrderPage.aboutRentOrderPage(deliveryDate, description);
 
         SuccessOrderModal successOrderModal;
         successOrderModal = orderConfirmationModal.confirmOrder();

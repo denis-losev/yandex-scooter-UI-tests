@@ -12,26 +12,26 @@ import java.util.Random;
 //Класс страницы с полями ввода информации о пользователе
 public class UserInfoOrderPage {
     WebDriver webdriver;
-    private final By FIRST_NAME = By.xpath(".//input[@placeholder='* Имя']");
-    private final By LAST_NAME = By.xpath(".//input[@placeholder='* Фамилия']");
-    private final By ADDRESS = By.xpath(".//input[@placeholder='* Адрес: куда привезти заказ']");
-    private final By METRO = By.xpath(".//input[@placeholder='* Станция метро']");
+    private final By firstName = By.xpath(".//input[@placeholder='* Имя']");
+    private final By lastName = By.xpath(".//input[@placeholder='* Фамилия']");
+    private final By address = By.xpath(".//input[@placeholder='* Адрес: куда привезти заказ']");
+    private final By metro = By.xpath(".//input[@placeholder='* Станция метро']");
     Random random = new Random();
-    private final int RANDOM_NUMBER_METRO_STATION = random.nextInt(237) + 1;
-    private final By METRO_STATION = By.xpath(".//button[@value='" + RANDOM_NUMBER_METRO_STATION + "']");
-    private final By PHONE_NUMBER = By.xpath(".//input[@placeholder='* Телефон: на него позвонит курьер']");
-    private final By NEXT_BTN = By.xpath(".//button[contains(text(),'Далее')]");
+    private final int randomNumberMetroStation = random.nextInt(237) + 1;
+    private final By metroStation = By.xpath(".//button[@value='" + randomNumberMetroStation + "']");
+    private final By phoneNumber = By.xpath(".//input[@placeholder='* Телефон: на него позвонит курьер']");
+    private final By nextBtn = By.xpath(".//button[contains(text(),'Далее')]");
 
     public AboutRentOrderPage userInfoOrderPage(String nameInput, String lastNameInput, String addressInput, String phoneInput) {
-        webdriver.findElement(FIRST_NAME).sendKeys(nameInput);
-        webdriver.findElement(LAST_NAME).sendKeys(lastNameInput);
-        webdriver.findElement(ADDRESS).sendKeys(addressInput);
-        webdriver.findElement(PHONE_NUMBER).sendKeys(phoneInput);
-        webdriver.findElement(METRO).click();
-        new WebDriverWait(webdriver, Duration.ofSeconds(3)).until(ExpectedConditions.elementToBeClickable(METRO_STATION));
-        ((JavascriptExecutor) webdriver).executeScript("arguments[0].scrollIntoView();", webdriver.findElement(METRO_STATION));
-        webdriver.findElement(METRO_STATION).click();
-        webdriver.findElement(NEXT_BTN).click();
+        webdriver.findElement(firstName).sendKeys(nameInput);
+        webdriver.findElement(lastName).sendKeys(lastNameInput);
+        webdriver.findElement(address).sendKeys(addressInput);
+        webdriver.findElement(phoneNumber).sendKeys(phoneInput);
+        webdriver.findElement(metro).click();
+        new WebDriverWait(webdriver, Duration.ofSeconds(3)).until(ExpectedConditions.elementToBeClickable(metroStation));
+        ((JavascriptExecutor) webdriver).executeScript("arguments[0].scrollIntoView();", webdriver.findElement(metroStation));
+        webdriver.findElement(metroStation).click();
+        webdriver.findElement(nextBtn).click();
 
         return new AboutRentOrderPage(webdriver);
     }

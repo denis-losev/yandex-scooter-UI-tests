@@ -7,16 +7,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 // Шаблон для тестов с Before и After
-public abstract class MainTestPattern {
+public abstract class BaseTest {
     WebDriver webdriver;
-    private final String URL = "https://qa-scooter.praktikum-services.ru/";
+    private final String url = "https://qa-scooter.praktikum-services.ru/";
 
     @Before
     public void startWebDriver() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         webdriver = new ChromeDriver(options);
-        webdriver.get(URL);
+        webdriver.get(url);
     }
 
     @After
