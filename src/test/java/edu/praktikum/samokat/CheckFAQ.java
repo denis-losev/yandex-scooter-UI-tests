@@ -30,7 +30,7 @@ public class CheckFAQ extends BaseTest {
     }
 
     @Test
-    public void CheckFAQ() {
+    public void CheckFaq() {
         MainPage mainPage = new MainPage(webdriver);
         mainPage.acceptCookies();
         mainPage.questionClick(questionParam); // Кликаем по блоку с вопросом
